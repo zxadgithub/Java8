@@ -1,5 +1,7 @@
 package com.zxa.stream;
 
+import com.zxa.bean.Student;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,6 +30,18 @@ public class StreamDemo {
 		System.out.println("================flatMap() end=====================");
 
 
+		System.out.println("================filter() start=====================");
+		filter();
+		System.out.println("================filter() end=====================");
+
+
+	}
+
+	private static void filter() {
+		System.out.println("学生年龄大于18");
+		List<Student> list = CollectionUtils.getStudents();
+		list = list.stream().filter(student -> student.getAge() > 18).collect(Collectors.toList());
+		System.out.println(list);
 	}
 
 	/**
