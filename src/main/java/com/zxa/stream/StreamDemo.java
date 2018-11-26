@@ -34,9 +34,44 @@ public class StreamDemo {
 		filter();
 		System.out.println("================filter() end=====================");
 
+		System.out.println("================reduce() start=====================");
+		reduce();
+		System.out.println("================reduce() end=====================");
 
 	}
 
+	/**
+	 * @description //作用是把 Stream 元素组合起来
+	 * @method  reduce
+	 * @params  []
+	 * @return void
+	 * @date: 2018/11/26 14:51
+	 * @author:zhangxin_an
+	 */
+	private static void reduce() {
+		//字符串链接，
+		String concat = Stream.of("A", "B", "C", "D").reduce("", String::concat);
+		System.out.println(concat);
+
+		//求最小值
+		Double min = Stream.of(1d, -0.4d,1.3d, 34d, -9323d).reduce(Double.MAX_VALUE, Double::min);
+		System.out.println(min);
+
+		int sum = Stream.of(1, 2, 3, 4, 5).reduce(0, Integer::sum);
+		System.out.println(sum);
+
+		sum = Stream.of(1, 2, 3, 4, 5).reduce(Integer::sum).get();
+		System.out.println(sum);
+	}
+
+	/**
+	 * @description //对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新 Stream
+	 * @method  filter
+	 * @params  []
+	 * @return void
+	 * @date: 2018/11/26 14:51
+	 * @author:zhangxin_an
+	 */
 	private static void filter() {
 		System.out.println("学生年龄大于18");
 		List<Student> list = CollectionUtils.getStudents();
