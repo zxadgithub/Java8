@@ -15,7 +15,7 @@ public class Joining {
 		Stream<String> stream1 = Stream.of(names);
 		Stream<String> stream2 = Stream.of(names);
 		Stream<String> stream3 = Stream.of(names);
-		//替换前缀，后缀以及分隔符
+		//替换前缀，后缀以及分隔符n
 		String result1 = stream1.collect(Collectors.joining(",",  "[", "]"));
 		String result2 = stream2.collect(Collectors.joining("|",  "[", "]"));
 		String result3 = stream3.collect(Collectors.joining("->",  "[", "]"));
