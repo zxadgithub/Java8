@@ -38,6 +38,14 @@ public class StreamDemo {
 		reduce();
 		System.out.println("================reduce() end=====================");
 
+
+		System.out.println("================others start=====================");
+		System.out.println("min()" + Stream.of(1, 2,2,3, 3).min(Integer::compareTo).get());
+		System.out.println("max()" + Stream.of(1, 2, 3).max(Integer::compareTo).get());
+
+		System.out.println("distinct()" + Stream.of(1, 2,2,3, 3).distinct().collect(Collectors.toList()));
+		System.out.println("================others end=====================");
+
 	}
 
 	/**
